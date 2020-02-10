@@ -21,12 +21,12 @@ uci:foreach(shadowsocksr, "servers", function(s)
 	end
 end)
 
-local key_table = {}   
-for key,_ in pairs(server_table) do  
-    table.insert(key_table,key)  
-end 
+local key_table = {}
+for key,_ in pairs(server_table) do
+	table.insert(key_table,key)
+end
 
-table.sort(key_table)  
+table.sort(key_table)
 
 -- [[ Global Setting ]]--
 s = m:section(TypedSection, "global")
@@ -58,6 +58,11 @@ o:value("router", translate("IP Route Mode"))
 o:value("all", translate("Global Mode"))
 o:value("oversea", translate("Oversea Mode"))
 o.default = gfw
+
+o = s:option(ListValue, "dports", translate("Proxy Ports"))
+o:value("1", translate("All Ports"))
+o:value("2", translate("Only Common Ports"))
+o.default = 1
 
 o = s:option(ListValue, "pdnsd_enable", translate("Resolve Dns Mode"))
 o:value("1", translate("Use Pdnsd tcp query and cache"))
