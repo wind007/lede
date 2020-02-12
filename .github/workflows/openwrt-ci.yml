@@ -16,6 +16,9 @@ on:
   schedule:
     - cron: 0 20 * * *
 
+env:
+  SSH_ACTIONS: true
+  TZ: Asia/Shanghai
 jobs:
 
   build:
