@@ -15,9 +15,6 @@ on:
       - master
   schedule:
     - cron: 0 20 * * *
-  push:
-    tags:
-      - '*'
 
 env:
   SSH_ACTIONS: true
